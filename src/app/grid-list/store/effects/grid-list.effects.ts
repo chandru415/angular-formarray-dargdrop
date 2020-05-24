@@ -4,6 +4,7 @@ import { catchError, map, switchMap } from 'rxjs/operators';
 import { EMPTY, of } from 'rxjs';
 
 import * as GridListActions from 'src/app/grid-list/store/actions/grid-list.actions';
+import { PeriodicService } from 'src/app/services/periodic.service';
 
 @Injectable()
 export class GridListEffects {
@@ -11,7 +12,7 @@ export class GridListEffects {
     this.actions$.pipe(
       ofType(GridListActions.loadGridLists),
       switchMap(() =>
-        EMPTY.pipe(
+        this.service.getPeriodicElements().pipe(
           map((data) => GridListActions.loadGridListsSuccess({ data })),
           catchError((error) =>
             of(GridListActions.loadGridListsFailure({ error }))
@@ -21,5 +22,5 @@ export class GridListEffects {
     )
   );
 
-  constructor(private actions$: Actions) {}
+  constructor(private actions$: Actions, private service: PeriodicService) {}
 }
