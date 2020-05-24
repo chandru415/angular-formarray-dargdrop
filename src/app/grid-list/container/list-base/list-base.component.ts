@@ -2,9 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { GridState } from '../../store/reducers/grid-list.reducer';
 import { Store, select } from '@ngrx/store';
 import { Subject, Observable } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
+import { takeUntil, map } from 'rxjs/operators';
 import { getGridList } from '../../store/selectors/grid-list.selectors';
 import { loadGridLists } from '../../store/actions/grid-list.actions';
+import { FormArray } from '@angular/forms';
+import { buildFormGroup } from 'src/app/models/periodic-element-work';
 
 @Component({
   selector: 'app-list-base',
@@ -21,6 +23,7 @@ export class ListBaseComponent implements OnInit {
     this.gridDataSource$ = this.store.pipe(
       takeUntil(this.alive),
       select(getGridList),
+      map(elements => new FormArray(elements.map(buildFormGroup)))
     );
 
     this.store.dispatch(loadGridLists())
