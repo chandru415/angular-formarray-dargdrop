@@ -3,15 +3,11 @@
     <form [formGroup]="gridForm">
       <!-- Header -->
       <div class="list-header">
-        <div class="list-container-wrapper">
-          <div class="list-container">
-            <div class="list-row">
-              <div class="position">Position</div>
-              <div class="name">Name</div>
-              <div class="weight">Weight</div>
-              <div class="symbol">Symbol</div>
-            </div>
-          </div>
+        <div class="list-container">
+          <div class="position">Position</div>
+          <div class="name">Name</div>
+          <div class="weight">Weight</div>
+          <div class="symbol">Symbol</div>
         </div>
       </div>
       <!-- End of Header -->
@@ -24,44 +20,42 @@
         >
           <div class="list-container-wrapper" [formGroupName]="i">
             <div class="list-container">
-              <div class="list-row">
-                <div class="position">{{ element.get("position").value }}</div>
-                <div class="name">
-                  <mat-form-field
-                    class=""
-                    floatLabel="never"
-                    appearance="outline"
-                  >
-                    <input matInput placeholder="name" formControlName="name" />
-                  </mat-form-field>
-                </div>
-                <div class="weight">
-                  <mat-form-field
-                    class=""
-                    floatLabel="never"
-                    appearance="outline"
-                  >
-                    <input
-                      matInput
-                      type="number"
-                      placeholder="weight"
-                      formControlName="weight"
-                    />
-                  </mat-form-field>
-                </div>
-                <div class="symbol">
-                  <mat-form-field
-                    class=""
-                    floatLabel="never"
-                    appearance="outline"
-                  >
-                    <input
-                      matInput
-                      placeholder="symbol"
-                      formControlName="symbol"
-                    />
-                  </mat-form-field>
-                </div>
+              <div class="position">{{ element.get("position").value }}</div>
+              <div class="name">
+                <mat-form-field
+                  class=""
+                  floatLabel="never"
+                  appearance="outline"
+                >
+                  <input matInput placeholder="name" formControlName="name" />
+                </mat-form-field>
+              </div>
+              <div class="weight">
+                <mat-form-field
+                  class=""
+                  floatLabel="never"
+                  appearance="outline"
+                >
+                  <input
+                    matInput
+                    type="number"
+                    placeholder="weight"
+                    formControlName="weight"
+                  />
+                </mat-form-field>
+              </div>
+              <div class="symbol">
+                <mat-form-field
+                  class=""
+                  floatLabel="never"
+                  appearance="outline"
+                >
+                  <input
+                    matInput
+                    placeholder="symbol"
+                    formControlName="symbol"
+                  />
+                </mat-form-field>
               </div>
             </div>
           </div>

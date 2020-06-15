@@ -1,16 +1,25 @@
-table {
-  width: 100%;
-  min-width: 900px;
+.list-header {
+  background-color: #ff3300;
+  color: #fff;
+  border-radius: 0.25rem;
+  padding: 14px 0;
+  text-align: center;
+}
 
-  tr {
-    td,
-    th {
-      padding-left: 5px;
-      padding-right: 5px;
-    }
+#list-parent-iterator {
+  padding-top: 10px;
+}
 
-    th {
-      text-align: center;
-    }
+.list-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-row-gap: 50px;
+  grid-column-gap: 50px;
+  grid-template-rows: 1fr;
+
+  .position {
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
