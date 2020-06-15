@@ -10,6 +10,8 @@ import { StoreModule } from '@ngrx/store';
 import {MatInputModule} from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatCardModule } from '@angular/material/card';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 const listRoutes: Routes = [
   {
@@ -28,7 +30,9 @@ const listRoutes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     MatInputModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatCardModule,
+    MatGridListModule,
   ]
 })
 export class GridListModule { }
