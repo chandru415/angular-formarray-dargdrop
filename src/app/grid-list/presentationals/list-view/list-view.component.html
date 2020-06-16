@@ -35,7 +35,12 @@
                   floatLabel="never"
                   appearance="outline"
                 >
-                  <input matInput placeholder="name" formControlName="name" />
+                  <input
+                    matInput
+                    placeholder="name"
+                    formControlName="name"
+                    (blur)="updateFormInState(element)"
+                  />
                 </mat-form-field>
               </div>
               <div class="weight">
@@ -49,6 +54,7 @@
                     type="number"
                     placeholder="weight"
                     formControlName="weight"
+                    (blur)="updateFormInState(element)"
                   />
                 </mat-form-field>
               </div>
@@ -62,6 +68,7 @@
                     matInput
                     placeholder="symbol"
                     formControlName="symbol"
+                    (blur)="updateFormInState(element)"
                   />
                 </mat-form-field>
               </div>
