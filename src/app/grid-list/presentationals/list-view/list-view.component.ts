@@ -4,10 +4,14 @@ import {
   Input,
   OnChanges,
   SimpleChanges,
+  EventEmitter,
+  Output,
 } from '@angular/core';
 import { FormGroup, FormArray, Form } from '@angular/forms';
 import { noop } from 'rxjs';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
+import { PeriodicElement } from 'src/app/models/periodic-element';
+import { Update } from '@ngrx/entity';
 
 @Component({
   selector: 'app-list-view',
@@ -16,6 +20,7 @@ import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 })
 export class ListViewComponent implements OnChanges {
   @Input() gridDataSource: FormArray;
+  @Output() updatePeridoicElement = new EventEmitter<Update<PeriodicElement>>();
 
   gridForm: FormGroup;
 
@@ -41,5 +46,12 @@ export class ListViewComponent implements OnChanges {
       event.previousIndex,
       event.currentIndex
     );
+  }
+
+  updateFormInState(form: FormGroup) {
+    this.updatePeridoicElement.emit({
+      id: form.get('id').value,
+      changes: form.value,
+    } as Update<PeriodicElement>);
   }
 }

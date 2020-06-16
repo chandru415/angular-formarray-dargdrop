@@ -1,1 +1,4 @@
-<app-list-view [gridDataSource]="gridDataSource$ | async"></app-list-view>
+<app-list-view
+  [gridDataSource]="gridDataSource$ | async"
+  (updatePeridoicElement)="onUpdatePeridoicElement($event)"
+></app-list-view>

@@ -7,6 +7,8 @@ import { getGridList } from '../../store/selectors/grid-list.selectors';
 import { loadGridLists } from '../../store/actions/grid-list.actions';
 import { FormArray } from '@angular/forms';
 import { buildFormGroup } from 'src/app/models/periodic-element-work';
+import { Update } from '@ngrx/entity';
+import { PeriodicElement } from 'src/app/models/periodic-element';
 
 @Component({
   selector: 'app-list-base',
@@ -23,9 +25,11 @@ export class ListBaseComponent implements OnInit {
     this.gridDataSource$ = this.store.pipe(
       takeUntil(this.alive),
       select(getGridList),
-      map(elements => new FormArray(elements.map(buildFormGroup)))
+      map((elements) => new FormArray(elements.map(buildFormGroup)))
     );
 
-    this.store.dispatch(loadGridLists())
+    this.store.dispatch(loadGridLists());
   }
+
+  onUpdatePeridoicElement(event: Update<PeriodicElement>) {}
 }
