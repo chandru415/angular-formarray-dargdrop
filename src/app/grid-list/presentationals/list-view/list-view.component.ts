@@ -7,7 +7,7 @@ import {
 } from '@angular/core';
 import { FormGroup, FormArray, Form } from '@angular/forms';
 import { noop } from 'rxjs';
-import { CdkDragDrop } from '@angular/cdk/drag-drop';
+import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-list-view',
@@ -35,7 +35,11 @@ export class ListViewComponent implements OnChanges {
       : noop();
   }
 
-  listDropped(event: CdkDragDrop<any>){
-    
+  listDropped(event: CdkDragDrop<any>) {
+    moveItemInArray(
+      (this.list as FormArray).controls,
+      event.previousIndex,
+      event.currentIndex
+    );
   }
 }
