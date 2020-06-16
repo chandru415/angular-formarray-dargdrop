@@ -7,6 +7,7 @@ import {
 } from '@angular/core';
 import { FormGroup, FormArray, Form } from '@angular/forms';
 import { noop } from 'rxjs';
+import { CdkDragDrop } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-list-view',
@@ -32,5 +33,9 @@ export class ListViewComponent implements OnChanges {
     this.gridForm
       ? this.gridForm.setControl('list', this.gridDataSource)
       : noop();
+  }
+
+  listDropped(event: CdkDragDrop<any>){
+    
   }
 }

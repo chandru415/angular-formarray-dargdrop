@@ -12,9 +12,17 @@
       </div>
       <!-- End of Header -->
       <!-- Body -->
-      <div id="list-parent-iterator">
+      <div
+        id="list-parent-iterator"
+        cdkDropList
+        [cdkDropListData]="list['controls']"
+        (cdkDropListDropped)="listDropped($event)"
+      >
         <div
           id="list-sub-parent-iterator"
+          cdkDrag
+          [cdkDragLockAxis]="'y'"
+          [cdkDragData]="element"
           formArrayName="list"
           *ngFor="let element of list['controls']; let i = index"
         >
@@ -58,6 +66,7 @@
                 </mat-form-field>
               </div>
             </div>
+            <div class="drag-placeholder" *cdkDragPlaceholder></div>
           </div>
         </div>
       </div>

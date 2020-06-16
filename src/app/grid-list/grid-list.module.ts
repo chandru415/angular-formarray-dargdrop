@@ -12,6 +12,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 const listRoutes: Routes = [
   {
@@ -33,6 +34,7 @@ const listRoutes: Routes = [
     MatFormFieldModule,
     MatCardModule,
     MatGridListModule,
+    DragDropModule
   ]
 })
 export class GridListModule { }
