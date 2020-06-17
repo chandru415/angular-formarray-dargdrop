@@ -4,7 +4,10 @@ import { Store, select } from '@ngrx/store';
 import { Subject, Observable } from 'rxjs';
 import { takeUntil, map } from 'rxjs/operators';
 import { getGridList } from '../../store/selectors/grid-list.selectors';
-import { loadGridLists } from '../../store/actions/grid-list.actions';
+import {
+  loadGridLists,
+  UpdateListObject,
+} from '../../store/actions/grid-list.actions';
 import { FormArray } from '@angular/forms';
 import { buildFormGroup } from 'src/app/models/periodic-element-work';
 import { Update } from '@ngrx/entity';
@@ -31,5 +34,7 @@ export class ListBaseComponent implements OnInit {
     this.store.dispatch(loadGridLists());
   }
 
-  onUpdatePeridoicElement(event: Update<PeriodicElement>) {}
+  onUpdatePeridoicElement(event: Update<PeriodicElement>) {
+    this.store.dispatch(UpdateListObject({ update: event }));
+  }
 }
